@@ -46,21 +46,6 @@ Neste projeto de arquitetura baseada em microsserviços, temos o serviço de **p
 spring.application.name=pagamentos-service
 server.port=8082
 
-eureka.client.register-with-eureka=true
-eureka.client.fetch-registry=true
-eureka.client.service-url.defaultZone=http://localhost:8081/eureka´´´
-
-## 💡 O que acontece na prática?
-
-- Ao iniciar, o `pagamentos-service` se **registra no Eureka Server**.
-- O Eureka Server mantém o **nome e endereço** desse serviço em sua lista de registros ativos.
-- Outros microsserviços podem **descobrir o `pagamentos-service`** consultando o Eureka pelo nome.
-
----
-
-## 📌 Benefícios dessa abordagem
-
-- **Escalabilidade**: múltiplas instâncias de um serviço são automaticamente registradas.
-- **Tolerância a falhas**: se uma instância cair, o Eureka a remove da lista após o timeout.
-- **Desacoplamento**: os serviços não precisam conhecer os IPs uns dos outros.
-
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+eureka.client.service-url.defaultZone=http://localhost:8081/eureka
